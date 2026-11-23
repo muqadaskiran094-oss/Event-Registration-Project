@@ -1,0 +1,97 @@
+/* style.css - linked AFTER Bootstrap's CSS so these rules can customise it */
+
+:root {
+  --pp-accent: #6f42c1;        /* custom brand colour */
+  --pp-accent-hover: #5a32a3;
+  --pp-accent-text: #6f42c1;   /* accent used for text on light backgrounds */
+  --pp-hero-start: #1b1245;
+  --pp-hero-end: #4b2fb5;
+}
+
+/* In dark mode, use lighter accent shades so text stays readable */
+[data-bs-theme="dark"] {
+  --pp-accent: #7a4fd6;
+  --pp-accent-hover: #6a3fc6;
+  --pp-accent-text: #c3aef7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Leave space for the sticky navbar when jumping to a section */
+section[id],
+footer[id] {
+  scroll-margin-top: 5rem;
+}
+
+.text-accent {
+  color: var(--pp-accent-text);
+}
+
+/* Custom accent button (built on Bootstrap's button CSS variables) */
+.btn-accent {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--pp-accent);
+  --bs-btn-border-color: var(--pp-accent);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--pp-accent-hover);
+  --bs-btn-hover-border-color: var(--pp-accent-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--pp-accent-hover);
+  --bs-btn-active-border-color: var(--pp-accent-hover);
+  --bs-btn-focus-shadow-rgb: 111, 66, 193;
+}
+
+.btn-outline-accent {
+  --bs-btn-color: var(--pp-accent-text);
+  --bs-btn-border-color: var(--pp-accent-text);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--pp-accent);
+  --bs-btn-hover-border-color: var(--pp-accent);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--pp-accent);
+  --bs-btn-active-border-color: var(--pp-accent);
+  --bs-btn-focus-shadow-rgb: 111, 66, 193;
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, var(--pp-hero-start), var(--pp-hero-end));
+  color: #fff;
+}
+
+.hero .lead {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-img {
+  max-height: 20rem;
+}
+
+.stat-chip {
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Event cards */
+.event-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .event-card {
+    transition: none;
+  }
+  .event-card:hover {
+    transform: none;
+  }
+}
